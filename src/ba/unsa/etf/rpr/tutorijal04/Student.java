@@ -1,18 +1,24 @@
 package ba.unsa.etf.rpr.tutorijal04;
 
+import java.util.Set;
+
 public class Student {
     private String ime;
     private String prezime;
     private int brojIndexa;
     private int godinaFaxa;
+    private int skupljeniECTS;
+    private Set<Predmet> predmeti;
 
-    public Student(){}
+    public Student() {
+    }
 
-    public Student(String ime,String prezime,int brojIndexa,int godinaFaxa){
+    public Student(String ime, String prezime, int brojIndexa, int godinaFaxa, int skupljeniECTS) {
         setIme(ime);
         setPrezime(prezime);
         setBrojIndexa(brojIndexa);
         setGodinaFaxa(godinaFaxa);
+        setSkupljeniECTS(skupljeniECTS);
     }
 
     public String getIme() {
@@ -45,5 +51,22 @@ public class Student {
 
     public void setGodinaFaxa(int godinaFaxa) {
         this.godinaFaxa = godinaFaxa;
+    }
+
+    public int getSkupljeniECTS() {
+        return skupljeniECTS;
+    }
+
+    public void setSkupljeniECTS(int skupljeniECTS) {
+        this.skupljeniECTS = skupljeniECTS;
+    }
+
+    public void upisiStudenta(Predmet predmet){
+        predmeti.add(predmet);
+    }
+
+    public void ispisiStudentaSaPredmeta(Predmet predmet){
+        predmeti.remove(predmet);
+        predmet.ispisiStudenta(this);
     }
 }
